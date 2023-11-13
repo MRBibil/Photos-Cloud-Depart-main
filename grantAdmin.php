@@ -2,10 +2,6 @@
 include 'php/sessionManager.php';
 include 'models/users.php';
 
-// if (!currentUserIsAdmin()) {
-//     exit('Vous n\'avez pas les droits nécessaires pour effectuer cette action.');
-// }
-
 if (isset($_POST['userId'])) {
     $userId = (int) $_POST['userId'];
 
@@ -13,10 +9,10 @@ if (isset($_POST['userId'])) {
     $user = $usersFile->get($userId);
 
     if ($user !== null) {
-        if ($user->isAdmin()) {
-            $user->revokeAdmin();
+        if ($user->isAdmin() == true) {
+            $user->isAdmin() = 0;
         } else {
-            $user->grantAdmin();
+            $user->isAdmin() = 1;
         }
         $usersFile->update($user);
 

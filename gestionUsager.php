@@ -3,8 +3,6 @@ include 'php/sessionManager.php';
 include_once "models/Users.php";
 
 userAccess();
-
-
 $viewTitle = "Liste des usagers";
 $list = UsersFile()->toArray();
 $viewContent = "";

@@ -69,15 +69,6 @@ class User extends Record
     {
         return $this->blocked;
     }
-    public function block()
-    {
-        $this->blocked = 1; // 1 = bloquer l'usager
-    }
-
-    public function unblock()
-    {
-        $this->blocked = 0; // 0 = Usager non bloquer
-    }
     public function isAdmin()
     {
         return $this->type == 1;
@@ -86,16 +77,6 @@ class User extends Record
     public function isBlocked()
     {
         return $this->blocked == 1;
-    }
-
-    public function grantAdmin()
-    {
-        $this->type = 1; // 1 = usager est admin
-    }
-
-    public function revokeAdmin()
-    {
-        $this->type = 0; // 0 = retirer l"admin a l'usager
     }
     public static function compare($user_a, $user_b)
     {

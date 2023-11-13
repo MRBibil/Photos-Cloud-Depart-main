@@ -3,13 +3,6 @@ include 'php/sessionManager.php';
 include_once "models/Users.php";
 
 userAccess();
-// if (isset($_SESSION['email']) && $_SESSION['email'] == 'admin@clg.qc.ca') {
-//     $isAdmin = true;
-//     $timeout = 200;
-//     adminAccess($timeout);
-// } else {
-//     $isAdmin = false;
-// }
 
 
 $viewTitle = "Liste des usagers";
