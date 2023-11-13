@@ -10,7 +10,7 @@
             "request": "launch",
             "runtimeArgs": [
                 "-S",
-                "localhost:8080/Photos-Cloud-Depart-main/loginForm.php",
+                "localhost:8080/Photos-Cloud-Depart/loginForm.php",
                 "-t",
                 "."
             ],

@@ -2,6 +2,10 @@
 include 'php/sessionManager.php';
 include 'models/users.php';
 
+// if (!currentUserIsAdmin()) {
+//     exit('Vous n\'avez pas les droits nécessaires pour effectuer cette action.');
+// }
+
 if (isset($_POST['userId'])) {
     $userIdToToggleBlock = (int) $_POST['userId'];
 
@@ -9,10 +13,10 @@ if (isset($_POST['userId'])) {
     $user = $usersFile->get($userIdToToggleBlock);
 
     if ($user !== null) {
-        if ($user->isBlocked() == true) {
-            $user->isBlocked() = 0;
+        if ($user->isBlocked()) {
+            $user->unblock();
         } else {
-            $user->isBlocked() = 1;
+            $user->block();
         }
         $usersFile->update($user);
     }
@@ -23,4 +27,8 @@ if (isset($_POST['userId'])) {
     exit('Aucun ID utilisateur fourni');
 }
 
+// function currentUserIsAdmin()
+// {
+//     return $_SESSION['userType'] == 1; 
+// }
 ?>

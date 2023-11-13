@@ -15,7 +15,7 @@
         $avatar = $_SESSION["avatar"];
         $userName = $_SESSION["userName"];
 
-        if($_SESSION["validAdmin"]) {    // pop menu pour admin 
+        if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {    // pop menu pour admin 
             $loggedUserMenu = <<<HTML
                 <a href="logout.php" class="dropdown-item">
                     <i class="menuIcon fa fa-sign-out mx-2"></i> Déconnexion

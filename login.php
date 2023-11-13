@@ -18,7 +18,7 @@ function EmailExist($email)
         $GLOBALS["userName"] = $user->Name();
         $GLOBALS["avatar"] = $user->Avatar();
         $GLOBALS["password"] = $user->Password();       
-        $GLOBALS["validAdmin"] = $user->isAdmin(); 
+        $GLOBALS["isAdmin"] = $user->isAdmin(); 
         $GLOBALS["blocked"] = $user->isBlocked();
 
         return true;
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 
     if ($validUser) {
         $_SESSION['validUser'] = true;
-        $_SESSION['validAdmin'] = $GLOBALS["validAdmin"];
+        $_SESSION['isAdmin'] = $GLOBALS["isAdmin"];
         $_SESSION['currentUserId'] = $id;
         $_SESSION['userName'] = $userName;
         $_SESSION['avatar'] = $avatar;
