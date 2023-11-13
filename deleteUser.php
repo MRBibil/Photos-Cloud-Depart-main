@@ -7,11 +7,6 @@ userAccess();
 if (isset($_POST['userId'])) {
     $userIdToDelete = (int) $_POST['userId'];
 
-    // if (!currentUserCanDeleteUser($userIdToDelete)) {
-    //     // Gérer le cas où l'utilisateur n'a pas le droit de supprimer l'utilisateur.
-    //     exit('Opération non autorisée');
-    //}
-
     $photos = PhotosFile()->toArray();
     foreach ($photos as $photo) {
         if ($photo->OwnerId() == $userIdToDelete) {
@@ -25,14 +20,6 @@ if (isset($_POST['userId'])) {
 } else {
     exit('Aucun ID utilisateur fourni');
 }
-
-
-// function currentUserCanDeleteUser($userIdToDelete) {
-
-//     $currentUserId = (int) $_SESSION["currentUserId"];
-
-//     return $isAdmin; // Renvoie true si l'utilisateur actuel peut supprimer, false sinon.
-// }
 if (!function_exists('redirect')) {
     function redirect($url)
     {
